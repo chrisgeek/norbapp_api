@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users do
+    # get 'confirm', on: :collection
+  end
+  resources :groups
+  resources :pending_requests do
+    get 'approve_request', on: :collection
+    get 'deny_request', on: :collection
+  end
   get '/current_user', to: 'users#signed_in_user'
   scope 'user' do
     devise_for :users,
