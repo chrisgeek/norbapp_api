@@ -4,7 +4,6 @@ class GroupsController < ApplicationController
   end
 
   def create
-    binding.pry
     @group = current_user.groups.create!(group_params)
     if @group.save
       current_user.update_attribute(:role, 'admin') # set first user as admin

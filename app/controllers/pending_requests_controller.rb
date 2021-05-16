@@ -19,7 +19,7 @@ class PendingRequestsController < ApplicationController
     user = User.find(@pr.user_id)
     group = Group.find(@pr.group_id)
     if user.groups << group
-      @pr.delete!
+      @pr.destroy
     end
     render json: 'Request Approved'
   end
