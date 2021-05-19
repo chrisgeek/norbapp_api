@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :validatable, :jwt_authenticatable,
          jwt_revocation_strategy: JwtDenylist
 
-  has_many_attached :photos
+  has_many_attached :photos, dependent: :destroy
   has_and_belongs_to_many :groups, optional: true
   has_many :pending_requests
 
@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validates :bio, presence: true
   validates :dob, presence: true
   validates :address, presence: true
-  validates :photos, attached: true, content_type: %i[png jpg jpeg gif],
+  validates :photos, attached: true, content_type: %i[png jpg jpeg],
                      size: { less_than_or_equal_to: 5.megabytes },
                      limit: { min: 1, max: 4 }
   validates :email, presence: true
