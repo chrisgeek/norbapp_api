@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
 ruby '2.7.2'
 
@@ -26,7 +26,7 @@ gem 'devise'
 gem 'devise-jwt', '~> 0.7.0'
 gem 'jsonapi-serializer'
 gem 'rack-cors'
-
+gem 'rake'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'database_cleaner'
@@ -44,7 +44,10 @@ end
 group :development do
   gem 'awesome_print'
   gem 'better_errors'
-  gem 'listen', '~> 3.2'
+  gem 'capistrano', '~> 3.16', require: false
+  gem 'capistrano-db-tasks', require: false
+  gem 'capistrano-rails', '~> 1.5', require: false
+  gem 'capistrano-rbenv', '~> 2.1', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
