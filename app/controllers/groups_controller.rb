@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   def index
-    render json: Group.all
+    groups = Group.all
+    render json: serialized_data(GroupSerializer, groups)
   end
 
   def create

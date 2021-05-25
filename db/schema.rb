@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_15_093016) do
+ActiveRecord::Schema.define(version: 2021_05_25_122802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,23 @@ ActiveRecord::Schema.define(version: 2021_05_15_093016) do
     t.index ["user_id"], name: "index_pending_requests_on_user_id"
   end
 
+  create_table "subscription_lists", force: :cascade do |t|
+    t.string "name"
+    t.string "price"
+    t.integer "user_limit"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "group_id", null: false
+    t.bigint "subscription_list_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_subscriptions_on_group_id"
+    t.index ["subscription_list_id"], name: "index_subscriptions_on_subscription_list_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -98,4 +115,6 @@ ActiveRecord::Schema.define(version: 2021_05_15_093016) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "pending_requests", "groups"
   add_foreign_key "pending_requests", "users"
+  add_foreign_key "subscriptions", "groups"
+  add_foreign_key "subscriptions", "subscription_lists"
 end
