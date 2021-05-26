@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :pending_request do
-    group { nil }
-    user { nil }
+    association :group
+    association :user
   end
 end

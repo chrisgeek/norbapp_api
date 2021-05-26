@@ -2,7 +2,7 @@ class PendingRequestsController < ApplicationController
   before_action :set_group, only: :index
   before_action :set_pending_request, only: %i[approve_request deny_request]
   def index
-    pending_requests = @group.pending_requests
+    pending_requests = @group.pending_requests.pending
     render json: pending_requests
   end
 
@@ -18,14 +18,17 @@ class PendingRequestsController < ApplicationController
   def approve_request
     user = User.find(@pr.user_id)
     group = Group.find(@pr.group_id)
-    if user.groups << group
-      @pr.destroy
+    if group.subscription_list.name == 'Free' && group.users.count == 10
+      render json: 'Upgrade to the premium plan to add more members'
+    else
+      group.users << user
+      @pr.update(status: 'approved')
+      render json: "User added to #{group.name} group"
     end
-    render json: 'Request Approved'
   end
 
   def deny_request
-    @pr.delete!
+    @pr.update(status: 'declined')
     render json: 'Request Denied'
   end
 

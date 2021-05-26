@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :group do
-    name { "MyString" }
-    description { "MyText" }
+    name { Faker::Name.unique.name }
+    description { Faker::Lorem.sentence }
+    # user
   end
 end

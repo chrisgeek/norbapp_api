@@ -10,22 +10,21 @@ class Ability
     alias_action :read, :update,             to: :ru
 
     user ||= User.new
-    user_group = user.groups.users
+    user_group = user.groups.each(&:users)
 
     if user.present?
       can :read, User, group: user_group
+      can :create, Group
       can :ru, user
-      can :user, User # access current user
     end
 
-    case user.role
-    when 'super_admin'
+    if user.has_role? :super_admin
       can :manage, :all
-    when 'admin'
+    elsif user.has_role? :admin
       can :manage, User, group: user_group
       can :confirm, User, group: user_group
       can :manage, Group, id: user_group.id
-    when 'member'
+    else
       can :read, User, group: user_group
       can :manage, User, id: user.id
     end

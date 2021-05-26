@@ -1,6 +1,6 @@
 class SubscriptionSerializer
   include JSONAPI::Serializer
-  attributes
+  attributes :renewed_at
   belongs_to :group
   belongs_to :subscription_list
 end

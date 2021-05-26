@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     get 'approve_request', on: :collection
     get 'deny_request', on: :collection
   end
-  get '/current_user', to: 'users#signed_in_user'
   scope 'users' do
     devise_for :users,
                defaults: { format: :json },
@@ -21,7 +20,17 @@ Rails.application.routes.draw do
                  passwords: 'passwords'
                }
   end
-  resources :users
-  resources :subscriptions
+
+  resources :users, except: %w[create update destroy edit new] do
+    collection do
+      get 'signed_in_user', format: :json
+    end
+  end
+  resources :subscriptions do
+    collection do
+      get 'confirm_payment', format: :json
+      get 'make_payment'
+    end
+  end
   resources :subscription_lists
 end

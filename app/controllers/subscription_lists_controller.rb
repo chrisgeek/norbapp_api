@@ -1,5 +1,6 @@
 class SubscriptionListsController < ApplicationController
   before_action :set_subscription_list, only: %i[update destroy show]
+  before_action :authenticate_user!
   def index
     subscription_lists = SubscriptionList.all
     render json: serialized_data(SubscriptionListSerializer, subscription_lists)

@@ -25,8 +25,11 @@ gem 'cancancan'
 gem 'devise'
 gem 'devise-jwt', '~> 0.7.0'
 gem 'jsonapi-serializer'
+gem 'paystack'
 gem 'rack-cors'
 gem 'rake'
+gem 'rolify'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'database_cleaner'

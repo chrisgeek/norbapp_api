@@ -35,10 +35,10 @@ class RegistrationsController < Devise::RegistrationsController
     # devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name phone email
     #                                                             dob status gender bio status])
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone, :email, :password,
-                                                              :gender, :status, :bio, :address, :dob, photos:[]])
+                                                              :gender, :status, :bio, :address, :dob,  photos:[]])
 
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone, :email, :password,
                                                        :password_confirmation, :gender, :status, :bio, :address,
-                                                       :dob, photos:[]])
+                                                       :dob, photos:[], group_ids:[]])
   end
 end

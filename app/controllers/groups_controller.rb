@@ -1,4 +1,7 @@
 class GroupsController < ApplicationController
+  load_and_authorize_resource
+  before_action :authenticate_user!
+
   def index
     groups = Group.all
     render json: serialized_data(GroupSerializer, groups)
@@ -7,7 +10,7 @@ class GroupsController < ApplicationController
   def create
     @group = current_user.groups.create!(group_params)
     if @group.save
-      current_user.update_attribute(:role, 'admin') # set first user as admin
+      current_user.add_role :admin, @group
       render json: 'Group Created Successfully', status: :created
     else
       render json: @group.errors

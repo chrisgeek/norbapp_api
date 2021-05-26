@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  # before_action :authenticate_user!
   before_action :set_group, only: :index
+  before_action :authenticate_user!
   def index
     render json: serialized_data(UserSerializer, @group.users)
   end
