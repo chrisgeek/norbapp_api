@@ -1,0 +1,195 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/chrisgeek/workspace/Rails/norbapp_api/app/models/group.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/chrisgeek/workspace/Rails/norbapp_api/spec/models/jwt_denylist_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/chrisgeek/workspace/Rails/norbapp_api/spec/models/pending_request_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          2,
+          1,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/chrisgeek/workspace/Rails/norbapp_api/app/models/pending_request.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/chrisgeek/workspace/Rails/norbapp_api/spec/models/role_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/chrisgeek/workspace/Rails/norbapp_api/app/models/role.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/chrisgeek/workspace/Rails/norbapp_api/spec/models/subscription_list_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/chrisgeek/workspace/Rails/norbapp_api/app/models/subscription_list.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/chrisgeek/workspace/Rails/norbapp_api/spec/models/subscription_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/chrisgeek/workspace/Rails/norbapp_api/app/models/subscription.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/chrisgeek/workspace/Rails/norbapp_api/spec/models/user_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/chrisgeek/workspace/Rails/norbapp_api/spec/requests/groups_request_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/chrisgeek/workspace/Rails/norbapp_api/spec/requests/pending_requests_request_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/chrisgeek/workspace/Rails/norbapp_api/spec/requests/subscription_lists_request_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/chrisgeek/workspace/Rails/norbapp_api/spec/requests/subscriptions_request_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/chrisgeek/workspace/Rails/norbapp_api/spec/requests/users_request_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          2,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1642690877
+  }
+}

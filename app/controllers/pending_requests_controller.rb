@@ -16,19 +16,19 @@ class PendingRequestsController < ApplicationController
   end
 
   def approve_request
-    user = User.find(@pr.user_id)
-    group = Group.find(@pr.group_id)
-    if group.subscription_list.name == 'Free' && group.users.count == 10
-      render json: 'Upgrade to the premium plan to add more members'
-    else
-      group.users << user
-      @pr.update(status: 'approved')
-      render json: "User added to #{group.name} group"
-    end
+    user = User.find(@pending_request.user_id)
+    group = Group.find(@pending_request.group_id)
+    # if group.subscription_list.name == 'Free' && group.users.count == 10
+    #   render json: 'Upgrade to the premium plan to add more members'
+    # else
+    group.users << user
+    @pending_request.update(status: 'approved')
+    render json: "User added to #{group.name} group"
+    # end
   end
 
   def deny_request
-    @pr.update(status: 'declined')
+    @pending_request.update(status: 'declined')
     render json: 'Request Denied'
   end
 
@@ -39,7 +39,7 @@ class PendingRequestsController < ApplicationController
   end
 
   def set_pending_request
-    @pr = PendingRequest.find(params[:pending_request_id])
+    @pending_request = PendingRequest.find(params[:pending_request_id])
   end
 
   def pending_request_params

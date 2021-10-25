@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
     if resource.save
       render json: resource,
              serializer: UserSerializer,
-             meta: { message: 'Sign up success', token: request.headers['Authorization'] },
+             meta: { message: 'Sign up successful', token: request.headers['Authorization'] },
              status: :created
     else
       render json: resource.errors
@@ -22,7 +22,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def respond_with(resource, _opts = {})
-    # render json: UserSerializer.new(resource).serializable_hash.to_json
     data = resource.errors.blank? ? UserSerializer.new(resource).serializable_hash.to_json : resource.errors
     render json: data
   end
@@ -32,10 +31,8 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_permitted_parameters
-    # devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name phone email
-    #                                                             dob status gender bio status])
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone, :email, :password,
-                                                              :gender, :status, :bio, :address, :dob,  photos:[]])
+                                                              :gender, :status, :bio, :address, :dob,  photos: []])
 
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone, :email, :password,
                                                        :password_confirmation, :gender, :status, :bio, :address,

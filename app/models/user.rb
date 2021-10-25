@@ -22,7 +22,7 @@ class User < ApplicationRecord
   validates :address, presence: true
   validates :photos, attached: true, content_type: %i[png jpg jpeg],
                      size: { less_than_or_equal_to: 5.megabytes },
-                     limit: { min: 1, max: 4 }
+                     limit: { min: 1 }
   validates :email, presence: true,
                     uniqueness: { scope: :group_id, message: 'Email already exist' }
   after_create :assign_default_role

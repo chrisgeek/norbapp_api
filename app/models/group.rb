@@ -1,6 +1,6 @@
 class Group < ApplicationRecord
   # before_save :set_group_admin
-  after_create :create_subscription
+  # after_create :create_subscription
   resourcify
   has_and_belongs_to_many :users
   has_many :pending_requests

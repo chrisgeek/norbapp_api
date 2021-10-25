@@ -26,6 +26,7 @@ class Ability
       can :manage, Group, id: user_group.id
     else
       can :read, User, group: user_group
+      can :read, Group, id: user_group.id
       can :manage, User, id: user.id
     end
     cannot :destroy, user # cannot destroy self

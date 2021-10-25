@@ -4,6 +4,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 require 'shoulda/matchers'
 require 'active_storage_validations/matchers'
+require 'simplecov'
+SimpleCov.start
 # Prevent database truncation if the environment is production
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|

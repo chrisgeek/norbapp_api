@@ -4,17 +4,22 @@ class GroupsController < ApplicationController
 
   def index
     groups = Group.all
-    render json: serialized_data(GroupSerializer, groups)
+    json_response(serialized_data(GroupSerializer, groups))
   end
 
   def create
     @group = current_user.groups.create!(group_params)
     if @group.save
       current_user.add_role :admin, @group
-      render json: 'Group Created Successfully', status: :created
+      json_response(serialized_data(GroupSerializer, @group))
     else
       render json: @group.errors
     end
+  end
+
+  def update
+    @group.update(group_params)
+    render json: 'Successfully updated group'
   end
 
   private
